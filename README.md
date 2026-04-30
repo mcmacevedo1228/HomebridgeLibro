@@ -12,6 +12,7 @@ A Homebridge plugin that integrates PetLibro smart feeders with Apple HomeKit, a
 - 🔄 **Momentary Switch**: Switch automatically resets after feeding
 - 🛡️ **Robust Error Handling**: Graceful failures that won't break Homebridge
 - 🔐 **Secure Authentication**: Uses the same API as the official PetLibro app
+- 🐾 **Multi-Device Support**: Automatically discovers and adds all feeders linked to your account
 
 ## Supported Devices
 
@@ -57,7 +58,6 @@ Add the following to your Homebridge `config.json` in the `platforms` section:
   "platforms": [
     {
       "platform": "PetLibroPlatform",
-      "name": "Pet Feeder",
       "email": "your-petlibro-email@example.com",
       "password": "your-petlibro-password",
       "portions": 1,
@@ -73,13 +73,20 @@ Add the following to your Homebridge `config.json` in the `platforms` section:
 | Option | Required | Default | Description |
 |--------|----------|---------|-------------|
 | `platform` | Yes | | Must be `"PetLibroPlatform"` |
-| `name` | No | `"Pet Feeder"` | Display name in Home app |
 | `email` | Yes | | Your PetLibro account email |
 | `password` | Yes | | Your PetLibro account password |
 | `portions` | No | `1` | Number of portions per feeding (1-10) |
 | `timezone` | No | `"America/New_York"` | Your timezone |
 | `country` | No | `"US"` | Your country code |
-| `deviceId` | No | | Specific device ID (auto-detected) |
+
+## Multi-Device Support
+
+The plugin automatically discovers all PetLibro devices linked to your account:
+
+- Each feeder appears as a separate switch in HomeKit
+- Devices use their names from the PetLibro app
+- New devices are added automatically on Homebridge restart
+- Removed devices are automatically cleaned up
 
 ## Important Setup Notes
 
