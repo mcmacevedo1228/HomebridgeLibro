@@ -71,13 +71,13 @@ class PetLibroPlatform {
       const response = await axios.post(`${this.baseUrl}/member/auth/login`, payload, {
         headers: {
           'Content-Type': 'application/json',
-          'User-Agent': 'PetLibro/1.3.45',
           'Accept': 'application/json',
           'Accept-Language': 'en-US',
           'source': 'ANDROID',
           'language': 'EN',
           'timezone': payload.timezone,
-          'version': '1.3.45'
+          'version': '1.8.20',
+          'User-Agent': 'PetLibro/1.8.20'
         },
         timeout: 10000
       });
