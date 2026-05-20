@@ -342,13 +342,13 @@ class PetLibroFeeder {
     
     const response = await axios.post(`${this.platform.baseUrl}/device/device/manualFeeding`, feedData, {
       headers: {
-        'Authorization': `Bearer ${this.platform.accessToken}`,
         'Content-Type': 'application/json',
         'token': this.platform.accessToken,
         'source': 'ANDROID',
         'language': 'EN',
         'timezone': this.config.timezone || 'America/New_York',
-        'version': '1.3.45'
+        'version': '1.8.20',
+        'User-Agent': 'PetLibro/1.8.20'
       },
       timeout: 15000
     });
