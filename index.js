@@ -152,13 +152,13 @@ class PetLibroPlatform {
       
       const response = await axios.post(`${this.baseUrl}/device/device/list`, {}, {
         headers: {
-          'Authorization': `Bearer ${this.accessToken}`,
           'Content-Type': 'application/json',
           'token': this.accessToken,
           'source': 'ANDROID',
           'language': 'EN',
           'timezone': this.config.timezone || 'America/New_York',
-          'version': '1.3.45'
+          'version': '1.8.20',
+          'User-Agent': 'PetLibro/1.8.20'
         },
         timeout: 10000
       });
